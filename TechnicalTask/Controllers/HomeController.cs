@@ -1,32 +1,36 @@
+using ConfigurationFileReader;
+using DbService;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using TechnicalTask.Models;
 
 namespace TechnicalTask.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private const string FILE_PATH = "Data\\data.json";
+        private readonly ITreeDbService _dbService;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ITreeDbService dbService)
         {
-            _logger = logger;
+            _dbService = dbService;
+        }
+
+        public IActionResult UploadConfiguration(IFormFile configFile)
+        {
+            JsonConverter converter = new JsonConverter();
+            ReaderManager readerManager = new ReaderManager(converter);
+
+            List<TreeNode> nodes = readerManager.ReadFile(FILE_PATH).ToList<TreeNode>();
+
+            _dbService.FillDbTree(nodes);
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Index()
         {
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new NodeModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+             
     }
 }
