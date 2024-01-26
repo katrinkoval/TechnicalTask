@@ -5,18 +5,18 @@ namespace ConfigurationFileReader
 {
     public class ReaderManager
     {
-        private readonly IConverterToNodeModel _fileReader;
+        private readonly IConverterToNodeModel _dataConverter;
 
-        public ReaderManager(IConverterToNodeModel fileReader)
+        public ReaderManager(IConverterToNodeModel dataConverter)
         {
-            _fileReader = fileReader;
+            _dataConverter = dataConverter;
         }
 
         public IEnumerable<TreeNode> ReadFile(string filePath)
         {
             string fileContent = File.ReadAllText(filePath);
 
-            return _fileReader.Convert(fileContent);
+            return _dataConverter.Convert(fileContent);
         }
     }
 }

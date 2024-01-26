@@ -9,13 +9,12 @@ namespace TechnicalTask.Controllers
         private const string FILE_PATH = "Data\\data.json";
         private readonly ITreeDbService _dbService;
 
-
         public HomeController(ITreeDbService dbService)
         {
             _dbService = dbService;
         }
 
-        public IActionResult UploadConfiguration(IFormFile configFile)
+        public IActionResult UploadConfiguration()
         {
             JsonConverter converter = new JsonConverter();
             ReaderManager readerManager = new ReaderManager(converter);
