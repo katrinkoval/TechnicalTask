@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer
+namespace DataAccessLayer
 {
     public class Node
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Value {  get; set; }
-        public int ParentId {  get; set; }
+        public string Name { get; set; }      
+        public int? ParentId { get; set; }     
+
     }
 }

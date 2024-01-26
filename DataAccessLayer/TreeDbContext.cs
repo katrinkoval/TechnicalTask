@@ -1,16 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer
+namespace DataAccessLayer
 {
-    public class TreeDBContext: DbContext
+    public class TreeDBContext : DbContext, ITreeDbContext
     {
-        private DbSet<Node> Nodes { get; set; }
-
         public TreeDBContext(DbContextOptions<TreeDBContext> options) : base(options) { }
+        public DbSet<Node> Nodes { get; set; }
+
     }
 }
