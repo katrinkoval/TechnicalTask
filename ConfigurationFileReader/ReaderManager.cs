@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConfigurationFileReader
 {
-    internal class ReaderManager
+    public class ReaderManager
     {
-        private IFileReader _fileReader;
+        private readonly IConverterToNodeModel _fileReader;
 
-        public ReaderManager(IFileReader fileReader)
+        public ReaderManager(IConverterToNodeModel fileReader)
         {
             _fileReader = fileReader;
         }
@@ -20,7 +16,7 @@ namespace ConfigurationFileReader
         {
             string fileContent = File.ReadAllText(filePath);
 
-            return _fileReader.Read(fileContent);
+            return _fileReader.Convert(fileContent);
         }
     }
 }
