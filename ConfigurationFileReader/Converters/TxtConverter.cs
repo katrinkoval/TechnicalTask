@@ -9,15 +9,9 @@ namespace ConfigurationFileReader.FileReaders
 {
     internal class TxtConverter:IConverterToNodeModel
     {
-        public IEnumerable<NodeModel> Convert(string fileContent)
+        public IEnumerable<TreeNode> Convert(string fileContent)
         {
-        // logic of converting string to Nodes
-
-        //keyA:keyB:keyC:value1
-        //keyA: keyB: keyD: value2
-        //keyE:value3
-        //keyC:keyD: value4
-        //keyA:keyD: value5
+            // converting string to NodesModel
 
             return null;
         }

@@ -4,6 +4,6 @@ namespace ConfigurationFileReader
 {
     public interface IConverterToNodeModel
     {
-        IEnumerable<NodeModel> Convert(string fileContent);
+        IEnumerable<TreeNode> Convert(string fileContent);
     }
 }

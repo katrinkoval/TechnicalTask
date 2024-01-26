@@ -15,9 +15,9 @@ namespace DbService
             _context = dBContext;
         }
       
-        public void FillDbTree(IEnumerable<NodeModel> roots)
+        public void FillDbTree(IEnumerable<ConfigurationFileReader.TreeNode> roots)
         {
-            foreach (NodeModel root in roots)
+            foreach (ConfigurationFileReader.TreeNode root in roots)
             {
                 if (root == null)
                 {
@@ -30,24 +30,24 @@ namespace DbService
             _context.SaveChanges();
         }
 
-        private void AddNode(NodeModel node, int? parentId)
+        private void AddNode(ConfigurationFileReader.TreeNode node, int? parentId)
         {
-            Node newNode = new Node()
+            DataAccessLayer.Node newNode = new DataAccessLayer.Node()
             {
-                Name = node.Key,
+                Name = node.Name,
                 ParentId = parentId
             };
 
             _context.Nodes.Add(newNode);
 
-            if (node.Value != null)
+            if (node.Children != null)
             {
                 parentId = _context.Nodes
-                        .Where(n => n.Name == node.Key)
+                        .Where(n => n.Name == node.Name)
                         .Select(n => n.Id)
                         .FirstOrDefault();
 
-                foreach (var childNode in node.Value)
+                foreach (var childNode in node.Children)
                 {
                     AddNode(childNode, parentId);
                 }

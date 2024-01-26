@@ -7,7 +7,7 @@ namespace DbService
 {
     public interface ITreeDbService: IDisposable
     {
-        void FillDbTree(IEnumerable<NodeModel> roots);
+        void FillDbTree(IEnumerable<TreeNode> roots);
 
     }
 }

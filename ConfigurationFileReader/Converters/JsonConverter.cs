@@ -6,9 +6,9 @@ namespace ConfigurationFileReader
 {
     public class JsonConverter: IConverterToNodeModel
     {
-        public IEnumerable<NodeModel> Convert(string fileContent)
+        public IEnumerable<TreeNode> Convert(string fileContent)
         {
-            return JsonSerializer.Deserialize<List<NodeModel>>(fileContent);
+            return JsonSerializer.Deserialize<List<TreeNode>>(fileContent);
         }
 
     }

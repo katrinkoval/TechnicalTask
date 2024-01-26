@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConfigurationFileReader
 {
-    public class NodeModel
+    public class TreeNode
     {
-        public string Key {  get; set; }
-        public List<NodeModel> Value { get; set; }
+        public string Name {  get; set; }
+        public List<TreeNode> Children { get; set; }
     }
 }

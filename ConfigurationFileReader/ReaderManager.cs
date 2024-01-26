@@ -12,7 +12,7 @@ namespace ConfigurationFileReader
             _fileReader = fileReader;
         }
 
-        public IEnumerable<NodeModel> ReadFile(string filePath)
+        public IEnumerable<TreeNode> ReadFile(string filePath)
         {
             string fileContent = File.ReadAllText(filePath);
 
