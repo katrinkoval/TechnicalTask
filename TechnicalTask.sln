@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{718D3BD4-5AD4-4B02-85D0-F231819F6632}"
 	ProjectSection(SolutionItems) = preProject
 		data.json = data.json
+		data.txt = data.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationFileReader", "ConfigurationFileReader\ConfigurationFileReader.csproj", "{114A30C4-5FDC-4967-AB83-B5BC0A26D160}"
