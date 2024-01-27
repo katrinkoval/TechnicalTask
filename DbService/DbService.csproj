@@ -121,14 +121,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ITreeDbService.cs" />
-    <Compile Include="SqlConnectionException.cs" />
     <Compile Include="TreeDbService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConfigurationFileReader\ConfigurationFileReader.csproj">
+    <ProjectReference Include="..\ConfigurationFileReader\ConfigurationDataConverter.csproj">
       <Project>{114a30c4-5fdc-4967-ab83-b5bc0a26d160}</Project>
-      <Name>ConfigurationFileReader</Name>
+      <Name>ConfigurationDataConverter</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{a3cd4e8a-c675-49ea-ada3-3e7892a3f120}</Project>

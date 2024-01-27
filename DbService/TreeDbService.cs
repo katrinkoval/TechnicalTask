@@ -54,6 +54,37 @@ namespace DbService
             }
         }
 
+        public List<TreeNode> GetTree()
+        {
+            List<TreeNode> tree = new List<TreeNode>();
+
+            List<Node> dbNodes = _context.Nodes.ToList();
+
+            IEnumerable<Node> dbRoots = dbNodes.Where(node => node.ParentId == null);
+
+            foreach (Node dbRoot in dbRoots)
+            {
+                TreeNode root = new TreeNode(dbRoot.Name);
+                tree.Add(root);
+                AddChildToParentNode(dbRoot, root, dbNodes);
+            }
+
+            return tree;
+        }
+
+        private void AddChildToParentNode(Node dbParent, TreeNode parent, List<Node> dbNodes)
+        {
+            IEnumerable<Node> childNodes = dbNodes.Where(n => n.ParentId == dbParent.Id);
+
+            foreach (Node childNode in childNodes)
+            {
+                TreeNode child = new TreeNode(childNode.Name);
+                parent.Children.Add(child);
+
+                AddChildToParentNode(childNode, child, dbNodes);
+            }
+        }
+
 
         public void Dispose()
         {
