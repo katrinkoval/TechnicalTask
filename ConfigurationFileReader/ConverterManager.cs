@@ -3,16 +3,16 @@ using System.IO;
 
 namespace ConfigurationFileReader
 {
-    public class ReaderManager
+    public class ConverterManager
     {
         private readonly IConverterToNodeModel _dataConverter;
 
-        public ReaderManager(IConverterToNodeModel dataConverter)
+        public ConverterManager(IConverterToNodeModel dataConverter)
         {
             _dataConverter = dataConverter;
         }
 
-        public IEnumerable<TreeNode> ReadFile(string filePath)
+        public IEnumerable<TreeNode> ConvertFile(string filePath)
         {
             string fileContent = File.ReadAllText(filePath);
 
