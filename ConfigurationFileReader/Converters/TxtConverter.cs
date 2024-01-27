@@ -16,7 +16,7 @@ namespace ConfigurationFileReader.FileReaders
             {
                 string[] nodes = branch.Split(':');
 
-                bool containsNode = tree.Any(node => node.Name == nodes[0]); //check if parent node is already added to tree
+                bool containsNode = tree.Any(node => node.Name == nodes[0]); //check if parent node is already added to the tree
 
                 if (!containsNode)
                 {

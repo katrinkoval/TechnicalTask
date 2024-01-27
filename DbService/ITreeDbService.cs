@@ -1,5 +1,4 @@
 ﻿using ConfigurationFileReader;
-using Microsoft.Extensions.Caching.Distributed;
 using System;
 using System.Collections.Generic;
 
@@ -9,5 +8,6 @@ namespace DbService
     {
         void FillDbTree(IEnumerable<TreeNode> roots);
 
+        List<TreeNode> GetTree();
     }
 }

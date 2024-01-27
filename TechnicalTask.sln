@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{718D3BD4-5
 		data.txt = data.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationFileReader", "ConfigurationFileReader\ConfigurationFileReader.csproj", "{114A30C4-5FDC-4967-AB83-B5BC0A26D160}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationDataConverter", "ConfigurationFileReader\ConfigurationDataConverter.csproj", "{114A30C4-5FDC-4967-AB83-B5BC0A26D160}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbService", "DbService\DbService.csproj", "{7A211DD6-58A3-4F81-A30E-190762B91E53}"
 EndProject

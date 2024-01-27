@@ -1,12 +1,14 @@
 using ConfigurationFileReader;
 using DbService;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalTask.Models;
 
 namespace TechnicalTask.Controllers
 {
     public class HomeController : Controller
     {
         private const string FILE_PATH = "Data\\data.json";
+
         private readonly ITreeDbService _dbService;
 
         public HomeController(ITreeDbService dbService)
@@ -17,9 +19,9 @@ namespace TechnicalTask.Controllers
         public IActionResult UploadConfiguration()
         {
             JsonConverter converter = new JsonConverter();
-            ReaderManager readerManager = new ReaderManager(converter);
+            ConverterManager readerManager = new ConverterManager(converter);
 
-            List<TreeNode> nodes = readerManager.ReadFile(FILE_PATH).ToList<TreeNode>();
+            List<TreeNode> nodes = readerManager.ConvertFile(FILE_PATH).ToList<TreeNode>();
 
             _dbService.FillDbTree(nodes);
 
@@ -28,7 +30,14 @@ namespace TechnicalTask.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<TreeNode> tree = _dbService.GetTree();
+
+            var model = new TreeModel
+            {
+                Nodes = tree
+            };
+
+            return View(model);
         }
              
     }
